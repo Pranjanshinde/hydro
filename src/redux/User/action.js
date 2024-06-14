@@ -41,7 +41,8 @@ export const Login = (data,navigate) => (dispatch)=>{
         localStorage.setItem("token",response.data.token);
         localStorage.setItem("user",JSON.stringify(response.data.user));
         // alert(response.data.msg);
-        navigate("/");
+        console.log(response.data.user.name);
+        navigate(`/${response.data.user.name}`);
       })
       .catch(function (error) {
         console.log(error);

@@ -7,6 +7,21 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Navbar(){
     const token = localStorage.getItem("token");
+    let user = localStorage.getItem("user");
+
+if (user) {
+  try {
+    user = JSON.parse(user);
+  } catch (e) {
+    console.error("Failed to parse user from localStorage:", e);
+    user = {name:"anonymous"}; // or set to a default value
+  }
+} else {
+  user = {name:"anonymous"}; // or set to a default value
+}
+    const username= user.name;
+    console.log(username,2);
+  
     const navigate=useNavigate();
     const notify = () => toast.info("Logout successfully",{
         position: "top-center",
@@ -41,17 +56,17 @@ function Navbar(){
             🅿🆁🅾🅳 
             </Box>
             <Stack gap={0}>
-            <Link to={"/"} >  <Box fontSize={"19px"} display={"flex"} justifyContent={"space-between"} alignItems={"center"} _hover={{bgColor:"#0076CE"}} padding={"20px"}  h={"21px"} >
+            <Link to={  `/${username}`} >  <Box fontSize={"19px"} display={"flex"} justifyContent={"space-between"} alignItems={"center"} _hover={{bgColor:"#0076CE"}} padding={"20px"}  h={"21px"} >
                 <CalendarIcon/>
             <Text display={{ base: "none", md: "block" }} >My product</Text>
             </Box></Link>
           <br/>
-          <Link to={"/createother"}>  <Box fontSize={"19px"} display={"flex"} justifyContent={"space-between"} alignItems={"center"} _hover={{bgColor:"#0076CE"}} padding={"20px"} h={"21px"} >
+          <Link to={`/${username}/createother`}>  <Box fontSize={"19px"} display={"flex"} justifyContent={"space-between"} alignItems={"center"} _hover={{bgColor:"#0076CE"}} padding={"20px"} h={"21px"} >
                 <SmallAddIcon/>
             <Text display={{ base: "none", md: "block" }}>Create product</Text>
             </Box></Link>
            <br/>
-           <Link to={"/othertodo"}>  <Box fontSize={"19px"} display={"flex"} justifyContent={"space-between"} alignItems={"center"} _hover={{bgColor:"#0076CE"}} padding={"20px"} h={"21px"}>
+           <Link to={`/${username}/othertodo`}>  <Box fontSize={"19px"} display={"flex"} justifyContent={"space-between"} alignItems={"center"} _hover={{bgColor:"#0076CE"}} padding={"20px"} h={"21px"}>
                 <StarIcon/>
             <Text display={{ base: "none", md: "block" }}>user info</Text>
             </Box></Link>

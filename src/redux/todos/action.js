@@ -134,7 +134,7 @@ export const Posttodos = (data) =>(dispatch)=>{
 
   export const Edittodo = (id,data,navigate) =>(dispatch)=>{
     let token=localStorage.getItem('token');
-    // let user=JSON.parse(localStorage.getItem("user"))
+    let user=JSON.parse(localStorage.getItem("user"))
     console.log(token,data);
     const config={
         headers:{
@@ -148,7 +148,7 @@ export const Posttodos = (data) =>(dispatch)=>{
       console.log(response.data);
     //  alert(response.data.msg);
     //  window.location.reload();
-    navigate("/");
+    navigate(`/${user.name}`);
     
     })
     .catch(function (error) {

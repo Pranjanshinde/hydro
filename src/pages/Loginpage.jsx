@@ -9,8 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const initreg={
     name:"",
     email:"",
-    password:"",
-    gender:""
+    password:""
 }
 
 const initlog={
@@ -108,11 +107,7 @@ transition: "Bounce",
             <Input variant='flushed' placeholder='Email' borderBottom={"1px solid blue"} name="email" onChange={regdata}/>
                 <Input variant='flushed' placeholder='Name' borderBottom={"1px solid blue"} name="name" onChange={regdata}/>
             <Input variant='flushed' placeholder='Password' borderBottom={"1px solid blue"} type="Password" name="password" onChange={regdata}/>
-            <Select placeholder='Gender' variant='flushed' borderBottom={"1px solid blue"} name="gender" onChange={regdata}>
-  <option value='male'>Male</option>
-  <option value='female'>Female</option>
-
-</Select>
+  
     
             <Button bg={"blue"} color={"white"} marginTop={"20px"} onClick={()=>{registered(reg)}}>Register</Button>
             </Box>

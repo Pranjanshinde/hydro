@@ -52,6 +52,8 @@ theme: "colored",
 transition: "Bounce",
 });
 
+console.log(mainuser);
+
 function changedata(e)
 {
     if(e.target.name=="price")
@@ -89,7 +91,7 @@ console.log(time);
 {
     setTimeout(()=>sendPost(data), +time*1000*60);
     onClose();
-    navigate("/");
+    navigate(`/${mainuser.name}`);
     // window.location.reload();
 }
 
@@ -109,9 +111,13 @@ console.log(time);
 </Select>
 <Box  display={"flex"} alignItems={"left"}>
 </Box>
-<Box  display={"flex"} justifyContent={"space-evenly"} w={"50%"} margin={"auto"}>
-<Button bg={"blue"} color={"white"} margin={"auto"} marginTop={"20px"} onClick={()=>{sendPost(data)}}>Add Product</Button>
-<Button bg={"blue"} color={"white"} margin={"auto"} marginTop={"20px"} onClick={onOpen}>Add Product Later</Button>
+<Box display={{ base: "block", md: "flex" }} justifyContent={{ base: "center", md: "space-evenly" }} w={{ base: "90%", md: "50%" }} m="auto">
+<Button bg="blue" color="white" m="auto" mt="20px" onClick={() => { sendPost(data) }}>
+    Add Product
+  </Button>
+  <Button bg="blue" color="white" m="auto" mt="20px" onClick={onOpen}>
+    Add Product Later
+  </Button>
 <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay>
           <ModalContent>

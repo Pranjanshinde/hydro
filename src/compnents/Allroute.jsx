@@ -8,13 +8,21 @@ import PrivateRoute from "./Privateroute";
 
 
 function Allroutes(){
+    let  mainuser=JSON.parse(localStorage.getItem("user")) || {name:"anonymous"} ;
+    let user=mainuser.name;
+    console.log(user,1);
+    const path1=`/${user}`;
+    const path2=`/${user}/othertodo`;
+    const path3=`/${user}/createother`;
+    const path4=`/${user}/edit/:id`;
+
 
     return (
         <Routes>
-            <Route path="/" element={<PrivateRoute><Mytodos/></PrivateRoute>}/>
-            <Route path="/othertodo" element={<PrivateRoute><Otherstodos/></PrivateRoute>} />
-            <Route path="/createother" element={<PrivateRoute><Createother/></PrivateRoute>} />
-            <Route path="/edit/:id" element={<PrivateRoute><Edittodos/></PrivateRoute>} />
+            <Route path={path1} element={<PrivateRoute><Mytodos/></PrivateRoute>}/>
+            <Route path={path2} element={<PrivateRoute><Otherstodos/></PrivateRoute>} />
+            <Route path={path3} element={<PrivateRoute><Createother/></PrivateRoute>} />
+            <Route path= {path4} element={<PrivateRoute><Edittodos/></PrivateRoute>} />
             <Route path="/login" element={<Loginpage/>} />
 
         </Routes>

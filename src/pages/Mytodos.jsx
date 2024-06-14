@@ -179,7 +179,7 @@ console.log(mytodos,1);
   <Divider w={"90%"} margin={"auto"} />
   <CardFooter>
     <ButtonGroup spacing='2'>
-      <Button variant='solid' colorScheme='blue' onClick={()=>{navigate(`/edit/${item.id}`)}} >
+      <Button variant='solid' colorScheme='blue' onClick={()=>{navigate(`/${user?.name}/edit/${item.id}`)}} >
         Edit
       </Button>
       <Button variant='ghost' colorScheme='blue'  onClick={()=>{deletedodos(item.id)}}>
