@@ -25,7 +25,9 @@ userRouter.post("/register",(req,res)=>{
 userRouter.post("/login",async(req,res)=>{
     try {
         const {name,email,password}=req.body;       
-        const user = await userSchema.findOne({email:email});
+        const user = await userSchema.findOne( {where: {
+            email: email
+          }});
         bcrypt.compare(password, user.password, function(err, result) {
             // result == true
             if(result)
