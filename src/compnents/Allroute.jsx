@@ -3,7 +3,7 @@ import Mytodos from "../pages/Mytodos";
 import Otherstodos from "../pages/Othertodo";
 import Createother from "../pages/Createforother";
 import Edittodos from "../pages/Edittodos";
-import Loginpage from "../pages/Loginpage";
+import LoginPage from "../pages/Loginpage";
 import PrivateRoute from "./Privateroute";
 
 
@@ -23,7 +23,7 @@ function Allroutes(){
             <Route path={path2} element={<PrivateRoute><Otherstodos/></PrivateRoute>} />
             <Route path={path3} element={<PrivateRoute><Createother/></PrivateRoute>} />
             <Route path= {path4} element={<PrivateRoute><Edittodos/></PrivateRoute>} />
-            <Route path="/login" element={<Loginpage/>} />
+            <Route path="/login" element={<LoginPage/>} />
 
         </Routes>
     )
